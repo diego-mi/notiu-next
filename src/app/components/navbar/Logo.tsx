@@ -1,11 +1,11 @@
 'use client';
 
-import {useRouter} from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 const Logo = () => {
   const router = useRouter();
 
-  return <div>Notiu</div>;
+  return <div>FinApp</div>;
 };
 
 export default Logo;

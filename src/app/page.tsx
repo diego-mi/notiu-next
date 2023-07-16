@@ -1,5 +1,5 @@
-import Tiptap from "@/app/components/Tiptap";
-import {initialContent} from "@/app/components/defaultcontent";
+import Tiptap from "@/app/components/tiptap/Tiptap";
+import {initialContent} from "@/app/components/tiptap/defaultcontent";
 
 export default function Home() {
   return (

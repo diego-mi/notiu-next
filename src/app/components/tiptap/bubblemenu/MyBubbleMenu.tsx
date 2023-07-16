@@ -29,21 +29,21 @@ export function MyBubbleMenu({editor}: MyBubbleMenuProps) {
         <BubbleButton
           onClick={() => editor.chain().focus().toggleItalic().run()}
           disabled={!editor.can().chain().focus().toggleItalic().run()}
-          data-active={editor.isActive('bold')}
+          data-active={editor.isActive('italic')}
         >
           <RxFontItalic className='w-4 h-4'/>
         </BubbleButton>
         <BubbleButton
           onClick={() => editor.chain().focus().toggleStrike().run()}
           disabled={!editor.can().chain().focus().toggleStrike().run()}
-          data-active={editor.isActive('bold')}
+          data-active={editor.isActive('strike')}
         >
           <RxStrikethrough className='w-4 h-4'/>
         </BubbleButton>
         <BubbleButton
           onClick={() => editor.chain().focus().toggleCode().run()}
           disabled={!editor.can().chain().focus().toggleCode().run()}
-          data-active={editor.isActive('bold')}
+          data-active={editor.isActive('code')}
         >
           <RxCode className='w-4 h-4'/>
         </BubbleButton>

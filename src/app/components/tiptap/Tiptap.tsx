@@ -21,7 +21,9 @@ lowlight.registerLanguage('js', js);
 const Tiptap = ({content}: EditorContent) => {
   const editor = useEditor({
     extensions: [
-      StarterKit,
+      StarterKit.configure({
+        codeBlock: false,
+      }),
       CodeBlockLowlight.configure({
         lowlight
       })
