@@ -5,8 +5,8 @@ import {AiOutlineMenu} from 'react-icons/ai';
 import {signOut} from 'next-auth/react';
 import {useRouter} from 'next/navigation';
 
-import useLoginModal from '@/app/hooks/useLoginModal';
-import useRegisterModal from '@/app/hooks/useRegisterModal';
+import useLoginModal from '@/hooks/useLoginModal';
+import useRegisterModal from '@/hooks/useRegisterModal';
 
 import MenuItem from './MenuItem';
 import Avatar from '../Avatar';
