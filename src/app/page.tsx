@@ -1,23 +1,24 @@
 'use client';
 
-import {makeCreateProjectCommandHandler} from "@/domain/command/projects/v1/create/CreateProjectCommandHandler";
-import {CreateProjectCommand} from "@/domain/command/projects/v1/create/CreateProjectCommand";
 import {toast} from "react-hot-toast";
-import {useRouter} from "next/navigation";
+import axios from "axios";
+import {IProject} from "@/domain/core/types/IProject";
 
 export default function Home() {
-  const router = useRouter();
 
   const createProject = async(): Promise<void> => {
-    try {
-      await makeCreateProjectCommandHandler().handle({name: 'teste'} as CreateProjectCommand);
-
-      toast.success('Projeto Criado!');
-      router.refresh();
-    } catch (e) {
-      console.log('error', e)
-    }
+    axios
+      .post('/api/v1/projects', {
+        name: 'Name Default'
+      } as IProject)
+      .then(() => {
+        toast.success('Projeto criado');
+      })
+      .catch(() => {
+        toast.error('Something went wrong.');
+      });
   }
+
 
   return (
     <>
