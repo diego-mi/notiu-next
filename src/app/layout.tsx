@@ -23,9 +23,7 @@ export default function RootLayout({
         <ToasterProvider />
         <ModalsProvider />
         <Navbar />
-        <div className="min-h-screen text-zinc-900 mx-auto overflow-hidden grid grid-cols-[16rem_1fr] pt-[85px]">
-          {children}
-        </div>
+        {children}
       </body>
     </html>
   )
