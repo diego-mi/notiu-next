@@ -1,14 +1,11 @@
-import NextAuth, { NextAuthOptions, Session } from 'next-auth';
-import { PrismaAdapter } from '@next-auth/prisma-adapter';
-import GoogleProvider from 'next-auth/providers/google';
-import prismadb from '@/domain/core/lib/prismadb';
-import { User } from '@prisma/client';
+import NextAuth from "next-auth"
+import {PrismaAdapter} from "@next-auth/prisma-adapter";
+import prismadb from "@/domain/core/lib/prismadb";
+import GoogleProvider from "next-auth/providers/google";
+import {UserSession} from "@/app/lib/nextauth/authconfig";
 
-interface UserSession extends Session {
-  user: User;
-}
 
-export const authOptions: NextAuthOptions = {
+const handler = NextAuth({
   adapter: PrismaAdapter(prismadb),
   providers: [
     GoogleProvider({
@@ -17,7 +14,7 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   pages: {
-    signIn: '/',
+    signIn: '/signin',
   },
   debug: process.env.NODE_ENV === 'development',
   session: {
@@ -40,6 +37,6 @@ export const authOptions: NextAuthOptions = {
       return session;
     },
   },
-};
+});
 
-export default NextAuth(authOptions);
+export { handler as GET, handler as POST }

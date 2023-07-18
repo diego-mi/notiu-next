@@ -1,7 +1,7 @@
-import { getServerSession } from 'next-auth/next';
-import { authOptions } from '@/pages/api/auth/[...nextauth]';
+import {getServerSession} from 'next-auth/next';
 import prismadb from '@/domain/core/lib/prismadb';
-import { SafeUser } from '@/domain/core/types';
+import {SafeUser} from '@/domain/core/types';
+import {authOptions} from "@/app/lib/nextauth/authconfig";
 
 export async function getSession() {
   return await getServerSession(authOptions);
@@ -20,7 +20,7 @@ export default async function getCurrentUser(): Promise<SafeUser | null> {
         email: session.user.email as string,
       },
     });
-
+    console.log('currentUser', currentUser)
     if (!currentUser) {
       return null;
     }
